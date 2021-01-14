@@ -1,4 +1,4 @@
-package com.dossantos.apisorteiai;
+package com.dossantos.sorteiai;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

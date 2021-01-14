@@ -1,4 +1,4 @@
-package com.dossantos.apisorteiai;
+package com.dossantos.sorteiai;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
