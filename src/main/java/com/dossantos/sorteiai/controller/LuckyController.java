@@ -6,7 +6,6 @@ import com.dossantos.sorteiai.repository.LuckyRepository;
 import com.dossantos.sorteiai.utils.ModelGenerator;
 import com.dossantos.sorteiai.utils.NumberGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,13 +22,35 @@ public class LuckyController {
 
     @PostMapping(path = "/api/lucky")
     public String getLuckyNumber(@RequestBody PostModel post) {
-        String luckyNumber = numberGenerator.getNumber(post.getLuckyNumberVariable());
-        modelGenerator.post(post.getEmail(), luckyNumber);
+        String luckyNumber;
+        List<LuckyModel> list = luckyRepository.findAllByEmail(post.getEmail());
+
+        Boolean validator = false;
+        do {
+
+            luckyNumber = numberGenerator.getNumber(post.getLuckyNumberVariable());
+
+            for (LuckyModel model : list) {
+                if (luckyNumber.equals(model.getLuckyNumber())) {
+                    validator = false;
+                    break;
+                } else {
+                    validator = true;
+                }
+            }
+
+        } while (!validator);
+
+
+        if (luckyNumber.length() >= 4 && luckyNumber.length() <= 6) {
+            modelGenerator.post(post.getEmail(), luckyNumber);
+        }
+
         return luckyNumber;
     }
 
     @GetMapping(path = "/api/list/{email}")
-    public List<LuckyModel> list (@PathVariable("email") String email) {
+    public List<LuckyModel> list(@PathVariable("email") String email) {
         return luckyRepository.findAllByEmail(email);
     }
 }
