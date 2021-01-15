@@ -25,7 +25,7 @@ public class LuckyController {
         String luckyNumber;
         List<LuckyModel> list = luckyRepository.findAllByEmail(post.getEmail());
 
-        Boolean validator = false;
+        Boolean validator = true;
         do {
 
             luckyNumber = numberGenerator.getNumber(post.getLuckyNumberVariable());
