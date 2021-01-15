@@ -2,7 +2,7 @@ package com.dossantos.sorteiai.model;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "db_lucky")
 public class LuckyModel {
 
     @Id
