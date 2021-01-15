@@ -1,12 +1,11 @@
-package com.dossantos.sorteiai.model;
+package com.dossantos.sorteiai.utils;
 
 import org.springframework.stereotype.Component;
 
 @Component
 public class NumberGenerator {
 
-    public String generator(Integer number) throws Exception {
-
+    public String getNumber(Integer number) {
         if (number >= 4 && number <= 6) {
             String luckyNumber = "";
 
@@ -18,8 +17,7 @@ public class NumberGenerator {
 
             return luckyNumber;
         } else {
-            throw new Exception("the number must be between 4 and 6");
+            return "the number must be between 4 and 6";
         }
-
     }
 }
