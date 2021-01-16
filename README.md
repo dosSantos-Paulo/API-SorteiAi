@@ -1,4 +1,4 @@
-#API SorteiAi
+# API SorteiAi
 
 API que sorteia uma sequência de números, que podem
 ser de 4, 5 ou 6 digitos. 
@@ -13,19 +13,19 @@ em JSON.
 
 Exemplo:
 
->{
+> {
 >
 >   "email": "teste@teste.com",
 >
 >   "luckyNumberVariable": 4
 >
->}
+> }
 
 Retorno esperado: 
 
 > "5791" 
 >
->ou
+> ou
 >
 > "the number must be between 4 and 6"
 
@@ -37,10 +37,10 @@ Exemplo:
 
 Retorno Esperado:
 
->{
+> {
 >
 >   "email": "teste@teste.com",
 >
 >   "luckyNumber": 4578
 >
->}
+> }
