@@ -42,7 +42,7 @@ public class LuckyController {
         } while (!validator);
 
 
-        if (luckyNumber.length() >= 4 && luckyNumber.length() <= 6) {
+        if (luckyNumber.length() <= 6) {
             modelGenerator.post(post.getEmail(), luckyNumber);
         }
 
